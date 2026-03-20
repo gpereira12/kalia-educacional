@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import StoreIcon from "./StoreIcon";
-import { SellerUrls } from "@/lib/types";
+import { SellerUrls, EditorialLabel } from "@/lib/types";
 import { getBranding } from "./EditorialLogo";
 
 interface StickyCTAProps {
   sellerUrls: SellerUrls;
   bookName?: string;
-  editorialLabel?: string;
+  editorialLabel?: EditorialLabel;
 }
 
-const StickyCTA = ({ sellerUrls, bookName = "Livro", editorialLabel = "Companhia de Jesus" }: StickyCTAProps) => {
+const StickyCTA = ({ sellerUrls, bookName = "Livro", editorialLabel = "Kalia Educacional" }: StickyCTAProps) => {
   const branding = getBranding(editorialLabel, 'light');
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);

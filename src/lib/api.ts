@@ -64,7 +64,7 @@ function buildBookFromFolder(folderName: string): Book | null {
     type: data.tipo ? data.tipo.split(',').map((s: string) => s.trim()) : ['livro'],
     categoria: data.categoria ? data.categoria.split(',').map((s: string) => s.trim()) : [],
     colecao: data.coleção || null,
-    seloEditorial: data['selo-editorial'] || 'Companhia de Jesus',
+    seloEditorial: data['selo-editorial'] || 'Kalia Educacional',
     coverImage: data['cover-image'] || "mockups_3d/foto_catalogo.avif", 
     
     author: {
@@ -185,31 +185,6 @@ export function getAllBooks(): Book[] {
   }
 
   const result = Array.from(booksMap.values());
-
-  // Prioriza Livro da Missa, Catecismo, e Bíblia (nesta ordem exata correspondente)
-  const priorityBooks = [
-    'santa-missa-ilustrada',
-    'catecismo',
-    'biblia'
-  ];
-
-  result.sort((a, b) => {
-    const aText = `${a.slug} ${a.title}`.toLowerCase();
-    const bText = `${b.slug} ${b.title}`.toLowerCase();
-    
-    const aIndex = priorityBooks.findIndex(p => aText.includes(p));
-    const bIndex = priorityBooks.findIndex(p => bText.includes(p));
-
-    if (aIndex !== -1 && bIndex !== -1) {
-      if (aIndex !== bIndex) return aIndex - bIndex;
-      return aText.localeCompare(bText); // Ambos têm o mesmo nível de prioridade (ex: duas Bíblias)
-    }
-    if (aIndex !== -1) return -1;
-    if (bIndex !== -1) return 1;
-    
-    return 0; // Mantém a ordem original para o restante
-  });
-
   return result;
 }
 

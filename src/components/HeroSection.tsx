@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import OptimizedImage from "./OptimizedImage";
 import MultiSellerCTA from "./MultiSellerCTA";
 import EditorialLogo from "./EditorialLogo";
-import { SellerUrls, RichTextItem } from "@/lib/types";
+import { SellerUrls, RichTextItem, EditorialLabel } from "@/lib/types";
 
 interface HeroSectionProps {
   title?: RichTextItem[] | string;
@@ -12,7 +12,7 @@ interface HeroSectionProps {
   buttonPreview?: string;
   sellerUrls: SellerUrls;
   backgroundTexture?: string;
-  seloEditorial?: string;
+  seloEditorial?: EditorialLabel;
 }
 
 const HeroSection = ({ 
@@ -162,7 +162,7 @@ const HeroSection = ({
         {/* Text Column */}
         <div className="text-center lg:text-left space-y-4 md:space-y-6 animate-fade-in-up">
           <EditorialLogo 
-            label={seloEditorial || "Companhia de Jesus"} 
+            label={"Kalia Educacional"} 
             className="mb-2 justify-center lg:justify-start" 
           />
           

@@ -4,7 +4,7 @@ import MultiSellerCTA from "./MultiSellerCTA";
 import EditorialLogo from "./EditorialLogo";
 import TitleWithColor from "./TitleWithColor";
 
-import { SellerUrls, RichTextItem } from "@/lib/types";
+import { SellerUrls, RichTextItem, EditorialLabel } from "@/lib/types";
 
 interface FinalCTASectionProps {
   title?: RichTextItem[] | string;
@@ -12,7 +12,7 @@ interface FinalCTASectionProps {
   buttonText?: string;
   image?: string;
   sellerUrls: SellerUrls;
-  editorialLabel?: string;
+  editorialLabel?: EditorialLabel;
 }
 
 const FinalCTASection = ({ title, description, buttonText, image, sellerUrls, editorialLabel }: FinalCTASectionProps) => {
@@ -50,7 +50,7 @@ const FinalCTASection = ({ title, description, buttonText, image, sellerUrls, ed
           }`}
         >
           <EditorialLogo 
-            label={editorialLabel || "Companhia de Jesus"} 
+            label={"Kalia Educacional"} 
             className="mb-6 justify-center md:justify-start" 
           />
           

@@ -1,9 +1,9 @@
 import React from 'react';
+import { EditorialLabel } from '@/lib/types';
 
-export type EditorialLabel = "Companhia de Jesus" | "Ílios Editorial" | "Edições Coala" | "Crônicas de Eldoria";
 
 interface EditorialLogoProps {
-  label: EditorialLabel | string;
+  label: EditorialLabel;
   className?: string;
   variant?: 'light' | 'dark';
   size?: 'sm' | 'lg' | 'xl';
@@ -53,10 +53,10 @@ export const getBranding = (label: string, variant: 'light' | 'dark' = 'dark') =
     };
   }
 
-  // Default to Companhia de Jesus
+  // Default to Kalia Educacional
   return {
-    logo: variant === 'light' ? "/cia-de-jesus/logo_light.svg" : "/cia-de-jesus/logo_transparent.svg",
-    name: "Editora Companhia de Jesus",
+    logo: "/logo-transparent.svg",
+    name: "Kalia Educacional",
     color: "#1B365D"
   };
 };
@@ -69,7 +69,7 @@ const EditorialLogo = ({
   size = 'sm',
   noBg = false
 }: EditorialLogoProps) => {
-  const branding = getBranding(typeof label === 'string' ? label : label, variant);
+  const branding = getBranding(label, variant);
 
   const sizeClasses = {
     sm: 'w-10 h-10',
