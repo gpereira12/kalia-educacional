@@ -62,8 +62,7 @@ const Hero = () => {
             className="mb-8 md:mb-14 text-base md:text-xl text-primary/80 font-light max-w-3xl mx-auto leading-relaxed"
           >
             <p>
-              Materiais para o seu filho, fundamentado no Bem, no Belo e na Verdade. <br className="hidden md:block" /> 
-              Um caminho sólido e vibrante para a alma da criança.
+              um caminho sólido para a formação da criança. Peça por peça, construimos um castelo
             </p>
           </motion.div>
           
