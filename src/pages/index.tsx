@@ -8,14 +8,27 @@ import CreatorsSection from "@/components/catalog/CreatorsSection";
 import Differentiators from "@/components/catalog/Differentiators";
 import PremiumBackground from "@/components/catalog/PremiumBackground";
 import CatalogSearch from "@/components/catalog/CatalogSearch";
+import CatalogSection from "@/components/catalog/CatalogSection";
 import { getAllBooks } from "@/lib/api";
-import { Book } from "@/lib/types";
 
 interface IndexProps {
-  books: Book[];
+  catalogBooks: {
+    isbn: string;
+    title: any;
+    subtitle: any;
+    slug: string;
+    urlSlug: string;
+    type: string[];
+    categoria: string[];
+    colecao: string | null;
+    coverImage: string;
+    author: {
+      name: string;
+    };
+  }[];
 }
 
-export default function Index({ books }: IndexProps) {
+export default function Index({ catalogBooks }: IndexProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -110,7 +123,7 @@ export default function Index({ books }: IndexProps) {
               
               <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-full max-w-xl z-10 pointer-events-none">
                 <div className="w-full pointer-events-auto">
-                  <CatalogSearch books={books} isScrolled={isScrolled} />
+                  <CatalogSearch books={catalogBooks as any} isScrolled={isScrolled} />
                 </div>
               </div>
 
@@ -140,31 +153,15 @@ export default function Index({ books }: IndexProps) {
         <main className="relative z-10">
           <Hero />
           
-          <div id="catalogo" className="container mx-auto px-4 py-32">
-            <div className="max-w-4xl mx-auto text-center space-y-8 bg-white/40 backdrop-blur-sm rounded-[40px] p-12 md:p-20 border border-black/5 shadow-sm">
-              <div className="flex justify-center">
-                <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary">
-                  <BookOpen className="w-8 h-8" />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <h2 className="text-3xl md:text-5xl font-serif text-primary italic">Em Breve</h2>
-                <div className="h-px w-24 bg-secondary mx-auto" />
-                <p className="text-text/70 text-lg md:text-xl max-w-2xl mx-auto font-medium">
-                  Estamos preparando um catálogo cuidadosamente ordenado para preencher as lacunas da educação e inspirar o aprendizado virtuoso.
-                </p>
-                <p className="text-text/50 text-sm italic">
-                  "Onde há ordem, há paz."
-                </p>
-              </div>
-            </div>
+          <div id="catalogo" className="container mx-auto px-4 py-20 md:py-32">
+            <CatalogSection books={catalogBooks} />
           </div>
-
+ 
           <CreatorsSection />
           <Differentiators />
         </main>
-
-        <Footer seloEditorial="Kalia Educacional" />
+ 
+        <Footer />
       </div>
     </>
   );
@@ -173,26 +170,27 @@ export default function Index({ books }: IndexProps) {
 export async function getStaticProps() {
   const allBooks = getAllBooks();
   
-  // Omit heavy markdown fields to optimize page load payload
-  const books = allBooks.map((book) => ({
-    isbn: book.isbn,
-    title: book.title,
-    subtitle: book.subtitle,
-    slug: book.slug,
-    urlSlug: book.urlSlug,
-    type: book.type,
-    categoria: book.categoria,
-    colecao: book.colecao,
-    seloEditorial: book.seloEditorial,
-    coverImage: book.coverImage,
-    author: {
-      name: book.author.name
-    }
-  }));
+  const catalogBooks = allBooks.map((book) => {
+    return {
+      isbn: book.isbn || "",
+      title: book.title || "",
+      subtitle: book.subtitle || "",
+      slug: book.slug || "",
+      urlSlug: book.urlSlug || "",
+      type: book.type || [],
+      categoria: book.categoria || [],
+      colecao: book.colecao || null,
+      nivel: book.nivel || null,
+      coverImage: book.coverImage || "",
+      author: {
+        name: book.author?.name || ""
+      }
+    };
+  });
 
   return {
     props: {
-      books,
+      catalogBooks: JSON.parse(JSON.stringify(catalogBooks)),
     },
   };
 }

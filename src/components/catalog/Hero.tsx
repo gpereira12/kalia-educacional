@@ -53,7 +53,7 @@ const Hero = () => {
             </div>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif mb-6 md:mb-10 leading-[1.2] md:leading-[1.1] tracking-tight text-primary px-2">
               Ordem e <span className="text-secondary italic pr-1">Beleza</span> <br className="md:hidden" />
-              na Educação Infantil
+              na Educação
             </h1>
           </motion.div>
 

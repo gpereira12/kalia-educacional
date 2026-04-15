@@ -81,7 +81,7 @@ const OptimizedImage = ({
 
 
   return (
-    <div ref={imgRef} className={cn("relative overflow-hidden", className)} style={{ aspectRatio }}>
+    <div ref={imgRef} className={cn("relative", className)} style={{ aspectRatio }}>
 
       {/* Main Image */}
       {inView && (
@@ -94,8 +94,10 @@ const OptimizedImage = ({
           loading={priority ? "eager" : "lazy"}
           decoding="async"
           className={cn(
-            "w-full h-full object-cover transition-all duration-500",
+            "w-full transition-all duration-700",
             isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95",
+            // Se h-auto estiver presente, não forçamos h-full
+            className?.includes('h-auto') ? "h-auto" : "h-full object-cover",
             className
           )}
           {...props}

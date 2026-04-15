@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { motion } from "framer-motion";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { getBookBySlug, getAllBookSlugs } from "@/lib/api";
 import { Book, RichTextItem } from "@/lib/types";
@@ -17,6 +18,7 @@ import SpecsSection from "@/components/SpecsSection";
 import FAQSection from "@/components/FAQSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import StickyCTA from "@/components/StickyCTA";
+import OptimizedImage from "@/components/OptimizedImage";
 
 interface BookPageProps {
   book: Book;
@@ -90,26 +92,26 @@ export default function BookPage({ book }: BookPageProps) {
   return (
     <>
       <Head>
-        <title>{`${getPlainText(book.title)} - ${book.seloEditorial}`}</title>
-        <meta name="description" content={getPlainText(book.subtitle) || `Conheça ${getPlainText(book.title)}, uma obra da ${book.seloEditorial}.`} />
-        <meta name="keywords" content={`${getPlainText(book.title)}, ${book.author.name}, ${book.seloEditorial}, literatura catolica, ${book.type}`} />
+        <title>{`${getPlainText(book.title)} - Kalia Educacional`}</title>
+        <meta name="description" content={getPlainText(book.subtitle) || `Conheça ${getPlainText(book.title)}, uma obra da Kalia Educacional.`} />
+        <meta name="keywords" content={`${getPlainText(book.title)}, ${book.author.name}, Kalia Educacional, literatura catolica, ${book.type}`} />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="book" />
-        <meta property="og:url" content={`https://catalogo.editoraciadejesus.com.br/${book.urlSlug}`} />
-        <meta property="og:title" content={`${getPlainText(book.title)} - ${book.seloEditorial}`} />
+        <meta property="og:url" content={`https://kaliaeducacional.com.br/${book.urlSlug}`} />
+        <meta property="og:title" content={`${getPlainText(book.title)} - Kalia Educacional`} />
         <meta property="og:description" content={getPlainText(book.subtitle)} />
-        <meta property="og:image" content={`https://catalogo.editoraciadejesus.com.br${resolveAsset(book.coverImage)}`} />
-        <meta property="og:site_name" content={book.seloEditorial} />
+        <meta property="og:image" content={`https://kaliaeducacional.com.br${resolveAsset(book.coverImage)}`} />
+        <meta property="og:site_name" content="Kalia Educacional" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content={`${getPlainText(book.title)} - ${book.seloEditorial}`} />
+        <meta property="twitter:title" content={`${getPlainText(book.title)} - Kalia Educacional`} />
         <meta property="twitter:description" content={getPlainText(book.subtitle)} />
-        <meta property="twitter:image" content={`https://catalogo.editoraciadejesus.com.br${resolveAsset(book.coverImage)}`} />
+        <meta property="twitter:image" content={`https://kaliaeducacional.com.br${resolveAsset(book.coverImage)}`} />
 
         {/* Canonical */}
-        <link rel="canonical" href={`https://catalogo.editoraciadejesus.com.br/${book.urlSlug}`} />
+        <link rel="canonical" href={`https://kaliaeducacional.com.br/${book.urlSlug}`} />
 
         {/* AEO: Structured Data (JSON-LD) - Book */}
         <script
@@ -125,11 +127,11 @@ export default function BookPage({ book }: BookPageProps) {
               },
               "publisher": {
                 "@type": "Organization",
-                "name": book.seloEditorial
+                "name": "Kalia Educacional"
               },
               "description": getPlainText(book.subtitle),
               "isbn": book.isbn,
-              "image": `https://catalogo.editoraciadejesus.com.br${resolveAsset(book.coverImage)}`,
+              "image": `https://kaliaeducacional.com.br${resolveAsset(book.coverImage)}`,
               "offers": {
                 "@type": "Offer",
                 "url": book.sellerUrls["amazon-book"] || book.sellerUrls["umlivro-book"] || book.sellerUrls["cedet-book"],
@@ -151,13 +153,13 @@ export default function BookPage({ book }: BookPageProps) {
                    "@type": "ListItem",
                    "position": 1,
                    "name": "Catálogo",
-                   "item": "https://catalogo.editoraciadejesus.com.br/"
+                   "item": "https://kaliaeducacional.com.br/"
                  },
                  {
                    "@type": "ListItem",
                    "position": 2,
                     "name": getPlainText(book.title),
-                   "item": `https://catalogo.editoraciadejesus.com.br/${book.urlSlug}`
+                   "item": `https://kaliaeducacional.com.br/${book.urlSlug}`
                  }
                ]
              })
@@ -196,10 +198,10 @@ export default function BookPage({ book }: BookPageProps) {
         <div className="fixed top-6 left-6 z-[60] pointer-events-none">
           <Link 
             href="/#catalogo"
-            className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-md border border-black/10 rounded-full text-black/80 hover:bg-white hover:scale-105 transition-all duration-300 shadow-xl group"
+            className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-xl border border-black/5 rounded-full text-black/60 hover:text-black hover:bg-white hover:scale-105 transition-all duration-300 shadow-xl group active:scale-95"
           >
-            <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
-            <span className="text-sm font-medium tracking-tight">Catálogo</span>
+            <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-1" />
+            <span className="text-[10px] font-extrabold tracking-widest uppercase">Catálogo</span>
           </Link>
         </div>
         
@@ -207,29 +209,63 @@ export default function BookPage({ book }: BookPageProps) {
         <StickyCTA 
           sellerUrls={book.sellerUrls} 
           bookName={getPlainText(book.title)}
-          editorialLabel={book.seloEditorial}
         />
         
         {book.hero && (
           <HeroSection
             title={book.hero.title}
-            subtitle={getPlainText(book.hero.subtitle)}
+            subtitle={book.hero.subtitle}
             image={resolveAsset(book.hero["image-main"])}
             buttonBuy={book.hero["button-buy"]}
             buttonPreview={book.hero["button-preview"]}
             sellerUrls={book.sellerUrls}
             backgroundTexture={resolveAsset(book.backgroundTexture)}
-            seloEditorial={book.seloEditorial}
           />
         )}
 
-        {book.presentation && book.presentation["image-main"] && book.presentation.title && (
-          <IllustrationsSection 
-            title={book.presentation.title}
-            description={book.presentation.description}
-            image={resolveAsset(book.presentation["image-main"])}
-          />
-        )}
+        {/* New Vitrine Highlight Section */}
+        <section className="py-20 md:py-32 bg-[hsl(var(--primary-background-color))]">
+           <div className="max-w-7xl mx-auto px-6">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                 <motion.div 
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="space-y-8"
+                 >
+                    <h2 className="apple-headline text-4xl md:text-6xl tracking-tight leading-tight">
+                       Uma obra de arte em <span className="text-[hsl(var(--primary-emphasis-color))]">cada detalhe.</span>
+                    </h2>
+                    <p className="apple-subheadline text-xl md:text-2xl text-[hsl(var(--secondary-text-color))] leading-relaxed">
+                       {book.presentation?.description || "Desenvolvida com o rigor da tradição clássica e a beleza que a educação cristã merece."}
+                    </p>
+                    <div className="flex gap-4">
+                       <div className="p-4 bg-white shadow-xl rounded-2xl border border-black/5">
+                          <p className="text-3xl font-bold text-[hsl(var(--primary-emphasis-color))] mb-1">100%</p>
+                          <p className="text-sm font-medium text-[hsl(var(--secondary-text-color))] uppercase tracking-wider">Fidelidade Católica</p>
+                       </div>
+                       <div className="p-4 bg-white shadow-xl rounded-2xl border border-black/5">
+                          <p className="text-3xl font-bold text-[hsl(var(--primary-emphasis-color))] mb-1">A4</p>
+                          <p className="text-sm font-medium text-[hsl(var(--secondary-text-color))] uppercase tracking-wider">Tamanho Superior</p>
+                       </div>
+                    </div>
+                 </motion.div>
+                 <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    className="relative"
+                 >
+                    <div className="absolute -inset-4 bg-[hsl(var(--primary-emphasis-color))]/10 blur-3xl rounded-full" />
+                    <OptimizedImage 
+                       src={resolveAsset("vitrine.png") || ""} 
+                       alt="Vitrine do Livro" 
+                       className="relative z-10 w-full h-auto drop-shadow-3xl rounded-3xl"
+                    />
+                 </motion.div>
+              </div>
+           </div>
+        </section>
         
         {(() => {
           const validSamples = book.sample?.["list-sample"]?.filter(s => s.image && s.image.trim() !== "") || [];
@@ -240,7 +276,6 @@ export default function BookPage({ book }: BookPageProps) {
               subtitle={book.sample?.subtitle}
               listSample={validSamples}
               images={validSamples.map(item => resolveAsset(item.image) || "")}
-              backgroundImage={resolveAsset(book.coverImage)}
             />
           );
         })()}
@@ -250,8 +285,8 @@ export default function BookPage({ book }: BookPageProps) {
           if (validInterior.length === 0) return null;
           return (
             <GallerySection 
-              title={book.interior?.title}
-              subtitle={book.interior?.subtitle}
+              title="A Beleza Revelada"
+              subtitle="Navegue pelas páginas deste tesouro pedagógico"
               images={validInterior.map(item => resolveAsset(item.image) || "")}
             />
           );
@@ -264,15 +299,6 @@ export default function BookPage({ book }: BookPageProps) {
           image={resolveAsset(book.author.image) || ""}
           backgroundTexture={resolveAsset(book.backgroundTexture)}
         />
-
-        {book.targetAudience && (
-          <AudienceSection 
-            title={book.targetAudience.title}
-            image={resolveAsset(book.targetAudience.image)}
-            audiences={book.targetAudience["target-list"]}
-            backgroundTexture={resolveAsset(book.backgroundTexture)}
-          />
-        )}
 
         {book.technical && (
           <SpecsSection 
@@ -298,13 +324,12 @@ export default function BookPage({ book }: BookPageProps) {
             title={book.finalCTA.title}
             description={book.finalCTA.description}
             buttonText={book.finalCTA["button-buy"]}
-            image={resolveAsset(book.finalCTA["image-main"]) || resolveAsset("mockups_3d/foto_catalogo.avif")}
+            image={resolveAsset(book.finalCTA["image-main"])}
             sellerUrls={book.sellerUrls}
-            editorialLabel={book.seloEditorial}
           />
         )}
 
-        <Footer seloEditorial={book.seloEditorial} sellerUrls={book.sellerUrls} />
+        <Footer sellerUrls={book.sellerUrls} />
       </main>
     </>
   );
@@ -324,17 +349,47 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string;
-  const book = getBookBySlug(slug);
+  const rawBook = getBookBySlug(slug);
 
-  if (!book) {
+  if (!rawBook) {
     return {
       notFound: true,
     };
   }
 
+  // Defensive mapping to ensure only serializable and expected properties are passed
+  const book = {
+    isbn: rawBook.isbn || "",
+    title: rawBook.title || "",
+    subtitle: rawBook.subtitle || "",
+    slug: rawBook.slug || "",
+    urlSlug: rawBook.urlSlug || "",
+    type: rawBook.type || [],
+    categoria: rawBook.categoria || [],
+    colecao: rawBook.colecao || null,
+    coverImage: rawBook.coverImage || "",
+    backgroundTexture: rawBook.backgroundTexture || null,
+    identityColors: rawBook.identityColors || null,
+    author: {
+      name: rawBook.author?.name || "",
+      bio: rawBook.author?.bio || "",
+      instagram: rawBook.author?.instagram || "",
+      image: rawBook.author?.image || ""
+    },
+    hero: rawBook.hero,
+    presentation: rawBook.presentation,
+    sample: rawBook.sample,
+    interior: rawBook.interior,
+    targetAudience: rawBook.targetAudience,
+    technical: rawBook.technical,
+    faq: rawBook.faq,
+    finalCTA: rawBook.finalCTA,
+    sellerUrls: rawBook.sellerUrls || {}
+  };
+
   return {
     props: {
-      book,
+      book: JSON.parse(JSON.stringify(book)),
     },
   };
 };

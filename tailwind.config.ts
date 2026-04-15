@@ -2,6 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: "class",
+  safelist: [
+    // Level badge classes (BookCatalogCard)
+    "bg-emerald-600/90", "border-emerald-400/30",
+    "bg-blue-600/90", "border-blue-400/30",
+    "bg-violet-600/90", "border-violet-400/30",
+  ],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",

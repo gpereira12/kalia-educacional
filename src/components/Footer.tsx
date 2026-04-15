@@ -3,11 +3,10 @@ import EditorialLogo from "./EditorialLogo";
 import { SellerUrls } from "@/lib/types";
 
 interface FooterProps {
-  seloEditorial?: string;
   sellerUrls?: SellerUrls;
 }
 
-const Footer = ({ seloEditorial, sellerUrls }: FooterProps) => {
+const Footer = ({ sellerUrls }: FooterProps) => {
   // Build dynamic seller entries — only include sellers with a valid URL
   const sellerEntries = sellerUrls ? [
     { name: "CEDET", url: sellerUrls["cedet-book"] },
@@ -31,9 +30,9 @@ const Footer = ({ seloEditorial, sellerUrls }: FooterProps) => {
           />
           <div className="space-y-2">
             <p className="text-xs md:text-sm font-medium uppercase tracking-[0.5em] text-white/60 italic flex flex-col md:flex-row items-center justify-center gap-1 md:gap-0">
-              <span>Ordem</span>
+              <span>Bondade</span>
               <span className="text-secondary/60 mx-0 md:mx-3">•</span>
-              <span>Belo</span>
+              <span>Beleza</span>
               <span className="text-secondary/60 mx-0 md:mx-3">•</span>
               <span>Verdade</span>
             </p>

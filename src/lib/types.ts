@@ -3,8 +3,6 @@ export interface RichTextItem {
   bold?: boolean;
 }
 
-export type EditorialLabel = "Kalia Educacional" | "Ílios Editorial" | "Edições Coala" | "Crônicas de Eldoria";
-
 export interface Book {
   isbn: string;
   title: string | RichTextItem[];
@@ -14,7 +12,7 @@ export interface Book {
   type: string[];
   categoria: string[];
   colecao: string | null;
-  seloEditorial: EditorialLabel;
+  nivel: string | null;
   coverImage: string;
   author: Author;
   hero: HeroSection | null;

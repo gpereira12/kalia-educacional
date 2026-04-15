@@ -34,59 +34,98 @@ function buildBookFromFolder(folderName: string): Book | null {
   const fileContents = fs.readFileSync(mdFilePath, 'utf8');
   const { data } = matter(fileContents);
 
-  // Enhanced ISBN extraction: Look for a 10-13 digit number in technical fields
-  const technicalItems = data['technical-section']?.technical || [];
-  const isbnField = technicalItems.find((t: any) => t.title?.toUpperCase().includes('ISBN')) || 
-                    technicalItems.find((t: any) => /\d{10,13}/.test(t.description || ''));
+  // Enhanced ISBN extraction: Look for top-level field first, then technical section
+  const isbnField = data.isbn || 
+                    data['technical-section']?.technical?.find((t: any) => t.title?.toUpperCase().includes('ISBN'))?.description || 
+                    data['technical-section']?.technical?.find((t: any) => /\d{10,13}/.test(t.description || ''))?.description;
   
-  const isbn = isbnField?.description || '000-00-00000-00-0';
-
-  // Extract clean ISBN for URL (prioritizing 10-13 digits following "ISBN" text or standalone)
-  const isbnPattern = /ISBN\s*[:\-]?\s*(\d{10,13})/i;
-  const anyIsbnPattern = /\b\d{10,13}\b/;
+  const isbn = isbnField || '000-00-00000-00-0';
+  const cleanIsbn = isbn.replace(/[^0-9]/g, '').match(/\d{10,13}/)?.[0];
   
-  let cleanIsbn = isbn.match(isbnPattern)?.[1] || isbn.match(anyIsbnPattern)?.[0];
-  
-  if (!cleanIsbn) {
-    const digitsOnly = isbn.replace(/[^0-9]/g, '');
-    cleanIsbn = digitsOnly.match(/97[89]\d{10}/)?.[0] || digitsOnly.match(/\d{10,13}/)?.[0] || '0000000000000';
-  }
-  
-  // Use custom url-slug from frontmatter, or auto-generate from folder name
   const friendlyName = toSlug(data['url-slug'] || folderName);
+  const urlSlug = cleanIsbn ? `${cleanIsbn}-${friendlyName}` : friendlyName;
+  
+  // Auto-resolve assets for Apostilas
+  const bookPublicDir = path.join(process.cwd(), 'public/books', folderName);
+  const mioloDir = path.join(bookPublicDir, 'miolo');
+  let interiorList = data['interior-section']?.['list-interior'] || [];
+  
+  if (interiorList.length === 0 && fs.existsSync(mioloDir)) {
+    const pages = fs.readdirSync(mioloDir).filter(f => f.endsWith('.png')).sort();
+    interiorList = pages.map(p => ({ image: `miolo/${p}` }));
+  }
 
+  // Create book object
   const book: Book = {
     isbn,
-    title: data['hero-section']?.title || 'Sem Título',
-    subtitle: data['hero-section']?.subtitle || '',
+    title: data['hero-section']?.title || data.title || 'Sem Título',
+    subtitle: data['hero-section']?.subtitle || data.subtitle || '',
     slug: folderName, 
-    urlSlug: friendlyName.startsWith(cleanIsbn) ? friendlyName : `${cleanIsbn}-${friendlyName}`,
-    type: data.tipo ? data.tipo.split(',').map((s: string) => s.trim()) : ['livro'],
-    categoria: data.categoria ? data.categoria.split(',').map((s: string) => s.trim()) : [],
-    colecao: data.coleção || null,
-    seloEditorial: data['selo-editorial'] || 'Kalia Educacional',
-    coverImage: data['cover-image'] || "mockups_3d/foto_catalogo.avif", 
+    urlSlug: urlSlug,
+    type: data.tipo ? data.tipo.split(',').map((s: string) => s.trim()) : ['apostila'],
+    categoria: data.categoria ? (Array.isArray(data.categoria) ? data.categoria : [data.categoria]) : [],
+    colecao: data.coleção || data.colecao || null,
+    nivel: data.nível || data.nivel || null,
+    coverImage: (() => {
+      if (data.coverImage) return data.coverImage;
+      if (fs.existsSync(path.join(bookPublicDir, 'vitrine.png'))) return 'vitrine.png';
+      if (fs.existsSync(path.join(bookPublicDir, 'mockup_3d.png'))) return 'mockup_3d.png';
+      return '';
+    })(),
     
     author: {
-      name: data.author?.name || '',
-      bio: data.author?.bio || '',
-      instagram: data.author?.instagram || '',
-      image: data.author?.image && fs.existsSync(path.join(fullBookDir, data.author.image)) 
-        ? data.author.image 
-        : '',
+      name: data.author?.name || 'Kalia Educacional',
+      bio: data.author?.bio || 'Excelência em educação clássica e formação integral.',
+      instagram: data.author?.instagram || 'kaliaeducacional',
+      image: data.author?.image || '',
     },
-    hero: data['hero-section'] || null,
-    presentation: data['presentation-section'] || null,
-    sample: data['sample-section'] || null,
-    interior: data['interior-section'] || null,
-    targetAudience: data['target-audience-section'] || null,
+    hero: {
+      title: data['hero-section']?.title || data.title || '',
+      subtitle: data['hero-section']?.subtitle || data.subtitle || '',
+      "button-buy": "Garantir minha Apostila",
+      "button-preview": "Conhecer o Miolo",
+      "image-main": data['hero-section']?.['image-main'] || "mockup_3d.png"
+    },
+    presentation: data['presentation-section'] || {
+      title: "Uma Formação que Eleva a Alma e a Inteligência",
+      description: data.description || "Desenvolvida por especialistas em educação clássica, esta apostila combina o rigor acadêmico com a beleza da tradição católica, proporcionando um aprendizado sólido e duradouro.",
+      "image-main": "capa_plana.png"
+    },
+    sample: data['sample-section'] || {
+      title: "O Que Você Encontrará Nestas Páginas",
+      subtitle: "Um sumário visual da nossa excelência pedagógica",
+      "list-sample": interiorList.slice(0, 7).map((item: any, idx: number) => ({
+        title: `Tema ${idx + 1}`,
+        subtitle: "Destaque do Material",
+        description: "Conteúdo pedagógico focado no desenvolvimento integral da criança.",
+        image: item.image
+      }))
+    },
+    interior: {
+      title: "A Beleza Revelada",
+      subtitle: "Navegue pelas páginas deste tesouro",
+      "list-interior": interiorList
+    },
+    targetAudience: data['target-audience-section'] || {
+      title: "Para quem é este material?",
+      image: "vitrine.png",
+      "target-list": [
+        { title: "Famílias Católicas", subtitle: "Educação em Casa", description: "Ideal para pais que buscam uma formação fiel à tradição." },
+        { title: "Escolas e Paróquias", subtitle: "Ensino Coletivo", description: "Material robusto para uso em salas de aula e catequese." }
+      ]
+    },
     technical: data['technical-section'] || null,
     faq: data['faq-section'] || null,
-    finalCTA: data['cta-final-section'] || null,
+    finalCTA: data['cta-final-section'] || {
+      title: "Não deixe para depois a formação de quem você ama.",
+      description: "Adquira agora e transforme o aprendizado em um ato de fé e beleza.",
+      "button-buy": "Garantir meu Exemplar",
+      "image-main": "mockup_3d.png"
+    },
     schemaOrg: data['schema-org'] || null,
-    sellerUrls: data['seller-urls'] || null,
+    sellerUrls: data['seller-urls'] || { "amazon-book": "", "umlivro-book": "" },
     identityColors: data['identity-colors'] || null,
-    backgroundTexture: data['background-texture'] || null,
+    backgroundTexture: data.backgroundTexture || null,
   };
 
   return book;
@@ -155,7 +194,6 @@ export function getBookBySlug(identifier: string): Book | null {
   const candidateSlug = toSlug(folderNameCandidate);
   const matchedFuzzy = allFolders.find(f => toSlug(f).includes(candidateSlug) || candidateSlug.includes(toSlug(f)));
   if (matchedFuzzy) return buildBookFromFolder(matchedFuzzy);
-  if (matchedFuzzy) return buildBookFromFolder(matchedFuzzy);
 
   return null;
 }
@@ -175,13 +213,9 @@ export function getAllBooks(): Book[] {
     const book = buildBookFromFolder(folder);
     if (!book) continue;
 
-    // Se já existe um livro com esse ISBN, priorizamos o que tem a pasta com o formato ISBN-slug
-    const existing = booksMap.get(book.isbn);
-    const isNewFormat = folder.startsWith(book.isbn.replace(/[^0-9]/g, ''));
-
-    if (!existing || isNewFormat) {
-      booksMap.set(book.isbn, book);
-    }
+    // Usamos o slug (nome da pasta) como chave única para garantir que todas as apostilas apareçam, 
+    // mesmo que compartilhem ISBNs genéricos ou temporários.
+    booksMap.set(book.slug, book);
   }
 
   const result = Array.from(booksMap.values());

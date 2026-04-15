@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState, useMemo, memo } from "react";
+import { motion } from "framer-motion";
 import TitleWithColor from "./TitleWithColor";
-
 import {
   Accordion,
   AccordionContent,
@@ -23,76 +22,64 @@ interface FAQSectionProps {
   faqs?: FAQItem[];
 }
 
-const MemoizedFAQItem = memo(({ faq, index }: { faq: FAQItem; index: number }) => (
-  <AccordionItem
-    value={`item-${index}`}
-    className="border-2 border-[hsl(var(--secondary-emphasis-color))]/20 hover:border-[hsl(var(--secondary-emphasis-color))]/50 transition-colors rounded-xl px-6 bg-card"
-  >
-    <AccordionTrigger className="apple-subheadline text-left text-sm sm:text-base md:text-xl hover:no-underline py-6">
-      {faq.question}
-    </AccordionTrigger>
-    <AccordionContent className="apple-subheadline text-sm sm:text-base md:text-lg text-[hsl(var(--secondary-text-color))] pb-6">
-      {faq.answer}
-    </AccordionContent>
-  </AccordionItem>
-));
-
-MemoizedFAQItem.displayName = "MemoizedFAQItem";
-
 const FAQSection = ({ title, faqs = [] }: FAQSectionProps) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.05 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[hsl(var(--primary-background-color))] via-[hsl(var(--secondary-background-color))]/30 to-[hsl(var(--secondary-background-color))]/40 py-12 px-4"
-    >
+    <section className="relative py-24 px-6 md:py-32 bg-gradient-to-b from-[hsl(var(--primary-background-color))] to-[hsl(var(--secondary-background-color))]/20">
       <div className="max-w-4xl mx-auto w-full">
-        <h2
-          className={`apple-headline text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-center mb-16 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 md:mb-24"
         >
-          <TitleWithColor title={title} colorClassName="text-[hsl(var(--primary-emphasis-color))]" />
-        </h2>
+          <h2 className="apple-headline text-4xl md:text-6xl tracking-tight mb-6">
+            <TitleWithColor title={title} colorClassName="text-[hsl(var(--primary-emphasis-color))]" />
+          </h2>
+          <p className="apple-subheadline text-[hsl(var(--secondary-text-color))] max-w-2xl mx-auto text-lg md:text-xl">
+            Tudo o que você precisa saber sobre o nosso compromisso com a educação do seu filho.
+          </p>
+        </motion.div>
         
-        <Accordion
-          type="single"
-          collapsible
-          className={`space-y-4 transition-all duration-1000 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
         >
-          {faqs.length > 0 ? (
-            faqs.map((faq, index) => (
-              <MemoizedFAQItem key={`faq-${index}`} faq={faq} index={index} />
-            ))
-          ) : (
-            <div className="text-center py-10">
-              <p className="text-[hsl(var(--secondary-text-color))]">Nenhuma pergunta disponível</p>
+          <Accordion
+            type="single"
+            collapsible
+            className="space-y-4"
+          >
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={`faq-${index}`}
+                value={`item-${index}`}
+                className="border border-[hsl(var(--secondary-emphasis-color))]/10 bg-white/40 backdrop-blur-sm hover:bg-white/60 transition-all rounded-2xl px-6 py-2 overflow-hidden shadow-sm"
+              >
+                <AccordionTrigger className="apple-subheadline text-left text-lg md:text-xl font-medium hover:no-underline py-4 text-[hsl(var(--primary-text-color))] group">
+                  <span className="group-hover:text-[hsl(var(--primary-emphasis-color))] transition-colors">
+                    {faq.question}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="apple-subheadline text-base md:text-lg text-[hsl(var(--secondary-text-color))] pb-6 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </motion.div>
+
+        {/* SEO Hidden Content for crawlers (Fallback) */}
+        <div className="sr-only" aria-hidden="true">
+          {faqs.map((f, i) => (
+            <div key={i}>
+              <h3>{f.question}</h3>
+              <p>{f.answer}</p>
             </div>
-          )}
-        </Accordion>
+          ))}
+        </div>
       </div>
     </section>
   );

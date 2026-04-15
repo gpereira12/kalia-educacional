@@ -4,7 +4,7 @@ import MultiSellerCTA from "./MultiSellerCTA";
 import EditorialLogo from "./EditorialLogo";
 import TitleWithColor from "./TitleWithColor";
 
-import { SellerUrls, RichTextItem, EditorialLabel } from "@/lib/types";
+import { SellerUrls, RichTextItem } from "@/lib/types";
 
 interface FinalCTASectionProps {
   title?: RichTextItem[] | string;
@@ -12,10 +12,9 @@ interface FinalCTASectionProps {
   buttonText?: string;
   image?: string;
   sellerUrls: SellerUrls;
-  editorialLabel?: EditorialLabel;
 }
 
-const FinalCTASection = ({ title, description, buttonText, image, sellerUrls, editorialLabel }: FinalCTASectionProps) => {
+const FinalCTASection = ({ title, description, buttonText, image, sellerUrls }: FinalCTASectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -50,7 +49,6 @@ const FinalCTASection = ({ title, description, buttonText, image, sellerUrls, ed
           }`}
         >
           <EditorialLogo 
-            label={"Kalia Educacional"} 
             className="mb-6 justify-center md:justify-start" 
           />
           
