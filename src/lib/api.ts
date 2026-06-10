@@ -116,9 +116,9 @@ function buildBookFromFolder(folderName: string): Book | null {
     },
     technical: data['technical-section'] || null,
     faq: data['faq-section'] || null,
-    finalCTA: data['cta-final-section'] || {
-      title: "Não deixe para depois a formação de quem você ama.",
-      description: "Adquira agora e transforme o aprendizado em um ato de fé e beleza.",
+    finalCTA: data['final-cta-section'] || data['cta-final-section'] || {
+      title: "Não deixe a formação repleta de buracos.",
+      description: "Adquira um caminho claro e seguro para o aprendizado.",
       "button-buy": "Garantir meu Exemplar",
       "image-main": "mockup_3d.png"
     },
