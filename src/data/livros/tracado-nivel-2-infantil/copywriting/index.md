@@ -85,9 +85,6 @@ interior-section:
 isbn: '9786585080071'
 nivel: Alfabetização - Nível 2
 presentation-section:
-  description: Desenvolvida por especialistas, esta apostila de Traçado combina o
-    rigor acadêmico com a beleza da tradição, proporcionando um aprendizado sólido
-    e duradouro para o Alfabetização - Nível 2.
   image-main: capa_plana.png
   title: 'Uma Formação que Eleva a Alma: Traçado'
 sample-section:

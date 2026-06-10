@@ -84,9 +84,6 @@ interior-section:
 isbn: '9786599843853'
 nivel: Alfabetização - Nível 1
 presentation-section:
-  description: Desenvolvida por especialistas, esta apostila de Habilidades Cognitivas
-    combina o rigor acadêmico com a beleza da tradição, proporcionando um aprendizado
-    sólido e duradouro para o Alfabetização - Nível 1.
   image-main: capa_plana.png
   title: 'Uma Formação que Eleva a Alma: Habilidades Cognitivas'
 sample-section:

@@ -236,9 +236,11 @@ export default function BookPage({ book }: BookPageProps) {
                 <h2 className="apple-headline text-4xl md:text-6xl tracking-tight leading-tight">
                   Uma obra de arte em <span className="text-[hsl(var(--primary-emphasis-color))]">cada detalhe.</span>
                 </h2>
-                <p className="apple-subheadline text-xl md:text-2xl text-[hsl(var(--secondary-text-color))] leading-relaxed">
-                  {book.presentation?.description || "Desenvolvida com o rigor da tradição clássica e a beleza que a educação cristã merece."}
-                </p>
+                {book.presentation?.description && (
+                  <p className="apple-subheadline text-xl md:text-2xl text-[hsl(var(--secondary-text-color))] leading-relaxed">
+                    {book.presentation.description}
+                  </p>
+                )}
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}

@@ -56,7 +56,7 @@ export interface HeroSection {
 
 export interface PresentationSection {
   title: string;
-  description: string;
+  description?: string;
   "image-main": string;
 }
 

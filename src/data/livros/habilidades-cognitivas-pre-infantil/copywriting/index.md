@@ -84,9 +84,6 @@ interior-section:
 isbn: '9786599843808'
 nivel: Pré-Alfabetização
 presentation-section:
-  description: Desenvolvida por especialistas, esta apostila de Habilidades Cognitivas
-    combina o rigor acadêmico com a beleza da tradição, proporcionando um aprendizado
-    sólido e duradouro para o Pré-Alfabetização.
   image-main: mockup_3d.png
   title: 'Uma Formação que Eleva a Alma: Habilidades Cognitivas'
 sample-section:

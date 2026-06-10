@@ -88,7 +88,6 @@ function buildBookFromFolder(folderName: string): Book | null {
     },
     presentation: data['presentation-section'] || {
       title: "Uma Formação que Eleva a Alma e a Inteligência",
-      description: data.description || "Desenvolvida por especialistas em educação clássica, esta apostila combina o rigor acadêmico com a beleza da tradição católica, proporcionando um aprendizado sólido e duradouro.",
       "image-main": "capa_plana.png"
     },
     sample: data['sample-section'] || {

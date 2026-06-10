@@ -84,9 +84,6 @@ interior-section:
 isbn: '9786599843822'
 nivel: Alfabetização - Nível 2
 presentation-section:
-  description: Desenvolvida por especialistas, esta apostila de Habilidades Cognitivas
-    combina o rigor acadêmico com a beleza da tradição, proporcionando um aprendizado
-    sólido e duradouro para o Alfabetização - Nível 2.
   image-main: capa_plana.png
   title: 'Uma Formação que Eleva a Alma: Habilidades Cognitivas'
 sample-section:

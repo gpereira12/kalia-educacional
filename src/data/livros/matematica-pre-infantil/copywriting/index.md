@@ -85,9 +85,6 @@ interior-section:
 isbn: '9786599843839'
 nivel: Pré-Alfabetização
 presentation-section:
-  description: Desenvolvida por especialistas, esta apostila de Matemática combina
-    o rigor acadêmico com a beleza da tradição, proporcionando um aprendizado sólido
-    e duradouro para o Pré-Alfabetização.
   image-main: capa_plana.png
   title: 'Uma Formação que Eleva a Alma: Matemática'
 sample-section:
