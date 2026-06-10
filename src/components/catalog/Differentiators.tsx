@@ -15,12 +15,12 @@ const differentiators = [
   {
     icon: BookOpen,
     title: "Narrativas de Excelência",
-    description: "Jornadas que inspiram a alma e expandem os horizontes intelectuais."
+    description: "Textos selecionados pensados também na formação do imaginário e na transmissão de valores."
   },
   {
     icon: Users,
-    title: "Unindo Gerações",
-    description: "Obras concebidas para serem compartilhadas entre pais, filhos e mestres."
+    title: "Métodos consolidados",
+    description: "Metodologia baseada em evidências científicas e nos melhores resultados acadêmicos."
   },
   {
     icon: Cross,
@@ -75,8 +75,8 @@ const Differentiators = () => {
                 ease: [0.16, 1, 0.3, 1]
               }}
               className={`group p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-white/40 backdrop-blur-xl border border-black/5 hover:border-primary/30 hover:bg-white/80 transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-primary/5 ${index === 0 ? "md:col-span-12 lg:col-span-7" :
-                  index === 1 ? "md:col-span-12 lg:col-span-5" :
-                    "md:col-span-12 lg:col-span-4"
+                index === 1 ? "md:col-span-12 lg:col-span-5" :
+                  "md:col-span-12 lg:col-span-4"
                 }`}
             >
               <div className="flex flex-col h-full justify-between gap-8 md:gap-12">
