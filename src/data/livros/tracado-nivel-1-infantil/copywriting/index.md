@@ -3,85 +3,60 @@ categoria: Traçado
 coleção: Infantil
 faq-section:
   faq:
-  - answer: Nossas apostilas utilizam a arte e o estímulo visual como porta de entrada.
-      As crianças são naturalmente atraídas pela beleza; ao verem os temas retratados
-      com cuidado, o aprendizado se torna um momento de prazer.
-    question: Como introduzir os temas para crianças sem que elas fiquem entediadas?
-  - answer: Sim. O material impresso estimula a 'atenção profunda'. Ao contrário do
+  - question: Como introduzir o tema para crianças?
+    answer: É importante que a atividade traga algo de conhecido para que a criança
+      perceba o caminho para realizar e que também traga um novo desafio. Por isso
+      as atividades são bastantes intuitivas, favorecendo que a criança tenha autonomia
+      para realizar e enfrentar pequenos desafios sem ficarem entediadas.
+  - question: Meu filho se distrai muito rápido com telas. Este material ajuda?
+    answer: Sim. O material impresso estimula a 'atenção profunda'. Ao contrário do
       ritmo frenético dos vídeos, a contemplação das ilustrações acalma a imaginação
       e permite o processamento no tempo da criança.
-    question: Meu filho se distrai muito rápido com telas. Este material ajuda?
-  - answer: 'Seguimos a divisão por níveis: Pré-Alfabetização (4-5 anos), Nível 1
-      (6-7 anos) e Nível 2 (8+ anos), sempre permitindo adaptação conforme o desenvolvimento
-      individual.'
-    question: Este livro é recomendado para qual idade?
-  - answer: Muitas famílias o utilizam como base diária. Você pode trabalhar uma lição
-      por dia, pedindo para a criança narrar o que entendeu olhando para as gravuras
-      e realizando os exercícios propostos.
-    question: Como usar este material na catequese em casa (Home Education)?
-  - answer: Totalmente. Todo o conteúdo respeita a sã doutrina e a tradição da Igreja,
-      sendo livre de interpretações subjetivistas ou revisionismos modernos.
-    question: O texto é fiel à tradição católica?
-  - answer: As ilustrações seguem o estilo clássico e sacro. Não são desenhos cartunescos
+  - question: Este livro é recomendado para qual idade?
+    answer: |-
+      Pré - a partir dos 3 anos
+      Nível 1 -  a partir dos 4 anos
+      Nivel 2 - Depois que realizou o nível 1 ou a partir dos 5 anos
+  - question: Qual o estilo?
+    answer: As ilustrações seguem o estilo clássico e sacro. Não são desenhos cartunescos
       vazios, mas obras que elevam o senso estético e preparam a criança para a grande
       arte.
-    question: Tenho medo de que as imagens sejam muito 'infantis'. Qual o estilo?
-  - answer: Sim. Através dos exemplos e da ordem presente nos exercícios, a criança
-      desenvolve virtudes como paciência, obediência e o amor ao que é Verdadeiro,
-      Bom e Belo.
-    question: O material ajuda a formar o caráter da criança?
-  - answer: Sim, utilizamos papel de alta gramatura. O material foi feito para durar
+  - question: O papel é resistente? Criança pequena pode manusear?
+    answer: Sim, utilizamos papel de alta gramatura. O material foi feito para durar
       e resistir ao manuseio frequente durante as atividades de aprendizado.
-    question: O papel é resistente? Criança pequena pode manusear?
-  - answer: Não. Adaptamos a linguagem para ser acessível e nobre, preservando a dignidade
+  - question: A linguagem é muito difícil ou arcaica?
+    answer: Não. Adaptamos a linguagem para ser acessível e nobre, preservando a dignidade
       do tema mas garantindo que o jovem leitor entenda perfeitamente o que está sendo
       ensinado.
-    question: A linguagem é muito difícil ou arcaica?
-  - answer: Sim, o material é ricamente ilustrado. A proposta é justamente o equilíbrio
+  - question: As ilustrações são em todas as páginas?
+    answer: Sim, o material é ricamente ilustrado. A proposta é justamente o equilíbrio
       entre o 'ver' (contemplar) e o 'fazer' (aprender).
-    question: As ilustrações são em todas as páginas?
-  - answer: A clareza visual e a estrutura clássica organizam o pensamento. Crianças
+  - question: Ajuda crianças com dificuldades de concentração?
+    answer: A clareza visual e a estrutura clássica organizam o pensamento. Crianças
       que se dispersam facilmente conseguem se fixar melhor com o auxílio das âncoras
       visuais presentes no material.
-    question: Ajuda crianças com dificuldades de concentração?
-  - answer: Nosso selo se compromete com o resgate da educação clássica católica,
-      unindo excelência pedagógica com a beleza que eleva a alma a Deus.
-    question: Qual o diferencial da Kalia Educacional?
-  - answer: O momento de estudo com este material cria memórias afetivas ligadas ao
-      conhecimento e à fé, fortalecendo o vínculo entre pais e filhos através do aprendizado
-      compartilhado.
-    question: Como este material ajuda na união da família?
-  - answer: Nossas apostilas são guias seguros. Elas oferecem a base necessária para
-      que os pais possam dialogar com segurança sobre os temas fundamentais da vida
-      e da fé.
-    question: O que fazer se a criança fizer perguntas difíceis durante as lições?
-  - answer: Sim, todo o material é revisado por especialistas em educação clássica
-      e famílias que praticam o ensino domiciliar com sucesso há anos.
-    question: O conteúdo é aprovado por educadores experientes?
-  - answer: Ao apresentar verdades objetivas através de uma estética tradicional,
-      ancoramos a mente da criança em fundamentos imutáveis, funcionando como um antídoto
-      contras as confusões do mundo.
-    question: Como este material combate o relativismo moderno?
-  - answer: A associação entre texto e imagem clássica é o método mais eficaz de mnemotecnia,
-      utilizado há séculos pela pedagogia tradicional da Igreja.
-    question: Ajuda na memorização e fixação?
-  - answer: Sim, a estrutura é robusta o suficiente para ser adaptada tanto para o
-      uso individual em casa quanto para salas de aula ou grupos de catequese.
-    question: Posso usar este material em escolas ou paróquias?
-  - answer: Considerando que são materiais que formam a alma e a inteligência para
-      a eternidade, o custo-benefício é incalculável frente ao impacto positivo na
-      vida da criança.
-    question: O valor compensa o investimento?
-  - answer: Muitas vezes o desinteresse vem de materiais sem beleza ou propósito.
+  - question: Qual o diferencial da Kalia Educacional?
+    answer: Nosso material se compromete a ser ordenado e sem grandes distrações no
+      currículo. Entendemos que cada habilidade adquirida é como uma peça de lego
+      que vai se encaixando, por isso nosso material está segmentado nas habilidades
+      para aprender, tornando o manuseio fácil e sendo uma ótima ferramenta para pais
+      e professores.
+  - question: O conteúdo é aprovado?
+    answer: Sim, todo o material é revisado anualmente e atualizado. É utilizado por
+      diversas escolas, aprovado pelos professores e famílias no ensino domiciliar.
+  - question: Posso usar este material em escolas?
+    answer: Sim, a estrutura é compatível com o uso escolar, sendo uma ferramenta
+      de fácil manuseio pelo professor.
+  - question: Meu filho não gosta de estudar. Isso pode mudar?
+    answer: Muitas vezes o desinteresse vem de materiais sem beleza ou propósito.
       A grandiosidade dos temas clássicos desperta a curiosidade intelectual nata
       de toda criança.
-    question: Meu filho não gosta de estudar. Isso pode mudar?
   title: Dúvidas Frequentes
 final-cta-section:
   button-buy: Garantir minha Apostila
-  description: Adquira agora e transforme o aprendizado em um ato de fé e beleza.
+  description: Adquira um caminho claro e seguro para o aprendizado.
   image-main: mockup_3d.png
-  title: Não deixe para depois a formação de quem você ama.
+  title: Não deixe a formação repleta de buracos.
 hero-section:
   image-main: mockup_3d.png
   subtitle: Apostila de Alfabetização - Nível 1 | Firmeza do Gesto
