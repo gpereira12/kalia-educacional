@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 import IllustrationsSection from "@/components/IllustrationsSection";
 import GallerySection from "@/components/GallerySection";
 import AudienceSection from "@/components/AudienceSection";
-import InteractiveCarouselSection from "@/components/InteractiveCarouselSection";
+
 import SpecsSection from "@/components/SpecsSection";
 import FAQSection from "@/components/FAQSection";
 import FinalCTASection from "@/components/FinalCTASection";
@@ -259,18 +259,7 @@ export default function BookPage({ book }: BookPageProps) {
           </div>
         </section>
 
-        {(() => {
-          const validSamples = book.sample?.["list-sample"]?.filter(s => s.image && s.image.trim() !== "") || [];
-          if (validSamples.length === 0) return null;
-          return (
-            <InteractiveCarouselSection
-              title={book.sample?.title}
-              subtitle={book.sample?.subtitle}
-              listSample={validSamples}
-              images={validSamples.map(item => resolveAsset(item.image) || "")}
-            />
-          );
-        })()}
+
 
         {(() => {
           const validInterior = book.interior?.["list-interior"]?.filter(i => i.image && i.image.trim() !== "") || [];

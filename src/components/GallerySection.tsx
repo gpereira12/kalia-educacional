@@ -82,7 +82,7 @@ const GallerySection = ({ title, subtitle, images = [] }: GallerySectionProps) =
 
 
   return (
-    <section ref={sectionRef} className="relative py-8 px-4 bg-gradient-to-b from-[hsl(var(--secondary-emphasis-color))]/20 via-[hsl(var(--primary-background-color))] to-[hsl(var(--primary-background-color))] overflow-hidden">
+    <section ref={sectionRef} className="relative py-8 px-4 bg-[#FFFFFF] overflow-hidden">
       <div className="max-w-[1600px] mx-auto">
         <div
           className={`text-center space-y-4 mb-16 transition-all duration-1000 ${

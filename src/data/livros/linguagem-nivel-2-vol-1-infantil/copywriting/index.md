@@ -124,7 +124,6 @@ sample-section:
     image: sample/sample_065.png
     subtitle: Alfabetização Analítica
     title: Método Fônico
-  subtitle: Um sumário visual da nossa excelência em Linguagem
   title: O Que Você Encontrará Nestas Páginas
 schema-org:
   '@context': https://schema.org

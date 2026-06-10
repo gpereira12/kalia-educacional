@@ -70,7 +70,7 @@ export interface SampleItem {
 
 export interface SampleSection {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   "list-sample": SampleItem[];
 }
 

@@ -124,7 +124,6 @@ sample-section:
     image: sample/sample_065.png
     subtitle: Transição de Estilo
     title: Prontidão para Cursiva
-  subtitle: Um sumário visual da nossa excelência em Traçado
   title: O Que Você Encontrará Nestas Páginas
 schema-org:
   '@context': https://schema.org

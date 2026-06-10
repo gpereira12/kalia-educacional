@@ -92,7 +92,6 @@ function buildBookFromFolder(folderName: string): Book | null {
     },
     sample: data['sample-section'] || {
       title: "O Que Você Encontrará Nestas Páginas",
-      subtitle: "Um sumário visual da nossa excelência pedagógica",
       "list-sample": interiorList.slice(0, 7).map((item: any, idx: number) => ({
         title: `Tema ${idx + 1}`,
         subtitle: "Destaque do Material",

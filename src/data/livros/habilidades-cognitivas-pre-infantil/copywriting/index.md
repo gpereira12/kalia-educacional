@@ -123,7 +123,6 @@ sample-section:
     image: sample/sample_065.png
     subtitle: Organização do Agir
     title: Planejamento Executivo
-  subtitle: Um sumário visual da nossa excelência em Habilidades Cognitivas
   title: O Que Você Encontrará Nestas Páginas
 schema-org:
   '@context': https://schema.org

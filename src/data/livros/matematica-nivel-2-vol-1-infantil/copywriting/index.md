@@ -124,7 +124,6 @@ sample-section:
     image: sample/sample_065.png
     subtitle: Dimensões da Realidade
     title: Métricas e Medidas
-  subtitle: Um sumário visual da nossa excelência em Matemática
   title: O Que Você Encontrará Nestas Páginas
 schema-org:
   '@context': https://schema.org

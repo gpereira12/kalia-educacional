@@ -58,9 +58,11 @@ const InteractiveCarouselSection = ({
           >
             <TitleWithColor title={title} colorClassName="text-[hsl(var(--primary-emphasis-color))]" />
           </motion.h2>
-          <p className="apple-subheadline text-xl text-[hsl(var(--secondary-text-color))] max-w-2xl mx-auto">
-            {subtitle || "Um sumário visual da nossa excelência pedagógica."}
-          </p>
+          {subtitle && (
+            <p className="apple-subheadline text-xl text-[hsl(var(--secondary-text-color))] max-w-2xl mx-auto">
+              {subtitle}
+            </p>
+          )}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[500px]">
