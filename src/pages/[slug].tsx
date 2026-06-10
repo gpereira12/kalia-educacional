@@ -239,16 +239,6 @@ export default function BookPage({ book }: BookPageProps) {
                     <p className="apple-subheadline text-xl md:text-2xl text-[hsl(var(--secondary-text-color))] leading-relaxed">
                        {book.presentation?.description || "Desenvolvida com o rigor da tradição clássica e a beleza que a educação cristã merece."}
                     </p>
-                    <div className="flex gap-4">
-                       <div className="p-4 bg-white shadow-xl rounded-2xl border border-black/5">
-                          <p className="text-3xl font-bold text-[hsl(var(--primary-emphasis-color))] mb-1">100%</p>
-                          <p className="text-sm font-medium text-[hsl(var(--secondary-text-color))] uppercase tracking-wider">Fidelidade Católica</p>
-                       </div>
-                       <div className="p-4 bg-white shadow-xl rounded-2xl border border-black/5">
-                          <p className="text-3xl font-bold text-[hsl(var(--primary-emphasis-color))] mb-1">A4</p>
-                          <p className="text-sm font-medium text-[hsl(var(--secondary-text-color))] uppercase tracking-wider">Tamanho Superior</p>
-                       </div>
-                    </div>
                  </motion.div>
                  <motion.div 
                     initial={{ opacity: 0, scale: 0.9 }}

@@ -59,7 +59,6 @@ final-cta-section:
   title: Não deixe a formação repleta de buracos.
 hero-section:
   image-main: mockup_3d.png
-  subtitle: Apostila de Alfabetização - Nível 1
   title: Habilidades Cognitivas - Nível 1
 identity-colors:
   primary-background-color: '#F9F6F0'
