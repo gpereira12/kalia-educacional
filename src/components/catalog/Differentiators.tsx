@@ -5,7 +5,7 @@ const differentiators = [
   {
     icon: Paintbrush,
     title: "Arte que Eleva",
-    description: "A beleza que cativa, encanta a criança e forma a percepção da harmonia necessária a contemplação"
+    description: "A beleza que cativa, encanta a criança e forma a percepção da harmonia necessária a contemplação."
   },
   {
     icon: Lightbulb,

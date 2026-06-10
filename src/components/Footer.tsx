@@ -28,7 +28,10 @@ const Footer = ({ sellerUrls }: FooterProps) => {
             alt="Kalia Educacional" 
             className="h-16 w-auto brightness-0 invert" 
           />
-          <div className="space-y-2">
+          <div className="space-y-4">
+            <p className="text-sm md:text-base text-white/80 font-serif italic tracking-wide">
+              Peça por peça, construímos um castelo.
+            </p>
             <p className="text-xs md:text-sm font-medium uppercase tracking-[0.5em] text-white/60 italic flex flex-col md:flex-row items-center justify-center gap-1 md:gap-0">
               <span>Bondade</span>
               <span className="text-secondary/60 mx-0 md:mx-3">•</span>
