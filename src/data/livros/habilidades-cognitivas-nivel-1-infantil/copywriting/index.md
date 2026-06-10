@@ -84,7 +84,7 @@ final-cta-section:
   title: Não deixe para depois a formação de quem você ama.
 hero-section:
   image-main: mockup_3d.png
-  subtitle: Apostila de Alfabetização - Nível 1 | Foco e Observação
+  subtitle: Apostila de Alfabetização - Nível 1
   title: Habilidades Cognitivas - Nível 1
 identity-colors:
   primary-background-color: '#F9F6F0'

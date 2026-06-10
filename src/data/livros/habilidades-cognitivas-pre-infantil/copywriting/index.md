@@ -84,7 +84,7 @@ final-cta-section:
   title: Não deixe para depois a formação de quem você ama.
 hero-section:
   image-main: mockup_3d.png
-  subtitle: Apostila de Pré-Alfabetização | Foco e Observação
+  subtitle: Apostila de Pré-Alfabetização
   title: Habilidades Cognitivas - Pré
 identity-colors:
   primary-background-color: '#F9F6F0'
