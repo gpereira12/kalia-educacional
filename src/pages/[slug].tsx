@@ -40,10 +40,10 @@ export default function BookPage({ book }: BookPageProps) {
   // Helper to convert hex to HSL for CSS variables compatibility
   const hexToHsl = (hex: string) => {
     if (!hex || !hex.startsWith('#')) return "";
-    
+
     // Remove #
     hex = hex.replace('#', '');
-    
+
     // Convert to RGB
     const r = parseInt(hex.substring(0, 2), 16) / 255;
     const g = parseInt(hex.substring(2, 4), 16) / 255;
@@ -56,7 +56,7 @@ export default function BookPage({ book }: BookPageProps) {
     if (max !== min) {
       const d = max - min;
       s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-      
+
       switch (max) {
         case r: h = (g - b) / d + (g < b ? 6 : 0); break;
         case g: h = (b - r) / d + 2; break;
@@ -77,7 +77,7 @@ export default function BookPage({ book }: BookPageProps) {
     '--secondary-text-color': hexToHsl(book.identityColors['secondary-text-color']),
     '--primary-background-color': hexToHsl(book.identityColors['primary-background-color']),
     '--secondary-background-color': hexToHsl(book.identityColors['secondary-background-color']),
-    
+
     // Base system mappings for deeper integration (overriding globals)
     '--primary': hexToHsl(book.identityColors['primary-emphasis-color']),
     '--secondary': hexToHsl(book.identityColors['secondary-emphasis-color']),
@@ -95,7 +95,7 @@ export default function BookPage({ book }: BookPageProps) {
         <title>{`${getPlainText(book.title)} - Kalia Educacional`}</title>
         <meta name="description" content={getPlainText(book.subtitle) || `Conheça ${getPlainText(book.title)}, uma obra da Kalia Educacional.`} />
         <meta name="keywords" content={`${getPlainText(book.title)}, ${book.author.name}, Kalia Educacional, literatura catolica, ${book.type}`} />
-        
+
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="book" />
         <meta property="og:url" content={`https://kaliaeducacional.com.br/${book.urlSlug}`} />
@@ -140,29 +140,29 @@ export default function BookPage({ book }: BookPageProps) {
             })
           }}
         />
-        
+
         {/* AEO: Structured Data (JSON-LD) - BreadcrumbList */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-             __html: JSON.stringify({
-               "@context": "https://schema.org",
-               "@type": "BreadcrumbList",
-               "itemListElement": [
-                 {
-                   "@type": "ListItem",
-                   "position": 1,
-                   "name": "Catálogo",
-                   "item": "https://kaliaeducacional.com.br/"
-                 },
-                 {
-                   "@type": "ListItem",
-                   "position": 2,
-                    "name": getPlainText(book.title),
-                   "item": `https://kaliaeducacional.com.br/${book.urlSlug}`
-                 }
-               ]
-             })
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Catálogo",
+                  "item": "https://kaliaeducacional.com.br/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": getPlainText(book.title),
+                  "item": `https://kaliaeducacional.com.br/${book.urlSlug}`
+                }
+              ]
+            })
           }}
         />
 
@@ -190,13 +190,13 @@ export default function BookPage({ book }: BookPageProps) {
         )}
       </Head>
 
-      <main 
+      <main
         className="min-h-screen w-full overflow-x-hidden bg-background text-foreground selection:bg-[hsl(var(--primary-emphasis-color))/30]"
         style={dynamicStyles}
       >
         {/* Back to Catalog Button */}
         <div className="fixed top-6 left-6 z-[60] pointer-events-none">
-          <Link 
+          <Link
             href="/#catalogo"
             className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-xl border border-black/5 rounded-full text-black/60 hover:text-black hover:bg-white hover:scale-105 transition-all duration-300 shadow-xl group active:scale-95"
           >
@@ -204,13 +204,13 @@ export default function BookPage({ book }: BookPageProps) {
             <span className="text-[10px] font-extrabold tracking-widest uppercase">Catálogo</span>
           </Link>
         </div>
-        
+
         {/* Dynamic Sticky CTA */}
-        <StickyCTA 
-          sellerUrls={book.sellerUrls} 
+        <StickyCTA
+          sellerUrls={book.sellerUrls}
           bookName={getPlainText(book.title)}
         />
-        
+
         {book.hero && (
           <HeroSection
             title={book.hero.title}
@@ -225,43 +225,43 @@ export default function BookPage({ book }: BookPageProps) {
 
         {/* New Vitrine Highlight Section */}
         <section className="py-20 md:py-32 bg-[hsl(var(--primary-background-color))]">
-           <div className="max-w-7xl mx-auto px-6">
-              <div className="grid lg:grid-cols-2 gap-16 items-center">
-                 <motion.div 
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className="space-y-8"
-                 >
-                    <h2 className="apple-headline text-4xl md:text-6xl tracking-tight leading-tight">
-                       Uma obra de arte em <span className="text-[hsl(var(--primary-emphasis-color))]">cada detalhe.</span>
-                    </h2>
-                    <p className="apple-subheadline text-xl md:text-2xl text-[hsl(var(--secondary-text-color))] leading-relaxed">
-                       {book.presentation?.description || "Desenvolvida com o rigor da tradição clássica e a beleza que a educação cristã merece."}
-                    </p>
-                 </motion.div>
-                 <motion.div 
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="relative"
-                 >
-                    <div className="absolute -inset-4 bg-[hsl(var(--primary-emphasis-color))]/10 blur-3xl rounded-full" />
-                    <OptimizedImage 
-                       src={resolveAsset("vitrine.png") || ""} 
-                       alt="Vitrine do Livro" 
-                       className="relative z-10 w-full h-auto drop-shadow-3xl rounded-3xl"
-                    />
-                 </motion.div>
-              </div>
-           </div>
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-8"
+              >
+                <h2 className="apple-headline text-4xl md:text-6xl tracking-tight leading-tight">
+                  Uma obra de arte em <span className="text-[hsl(var(--primary-emphasis-color))]">cada detalhe.</span>
+                </h2>
+                <p className="apple-subheadline text-xl md:text-2xl text-[hsl(var(--secondary-text-color))] leading-relaxed">
+                  {book.presentation?.description || "Desenvolvida com o rigor da tradição clássica e a beleza que a educação cristã merece."}
+                </p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="absolute -inset-4 bg-[hsl(var(--primary-emphasis-color))]/10 blur-3xl rounded-full" />
+                <OptimizedImage
+                  src={resolveAsset("vitrine.png") || ""}
+                  alt="Vitrine do Livro"
+                  className="relative z-10 w-full h-auto drop-shadow-3xl rounded-3xl"
+                />
+              </motion.div>
+            </div>
+          </div>
         </section>
-        
+
         {(() => {
           const validSamples = book.sample?.["list-sample"]?.filter(s => s.image && s.image.trim() !== "") || [];
           if (validSamples.length === 0) return null;
           return (
-            <InteractiveCarouselSection 
+            <InteractiveCarouselSection
               title={book.sample?.title}
               subtitle={book.sample?.subtitle}
               listSample={validSamples}
@@ -269,12 +269,12 @@ export default function BookPage({ book }: BookPageProps) {
             />
           );
         })()}
-        
+
         {(() => {
           const validInterior = book.interior?.["list-interior"]?.filter(i => i.image && i.image.trim() !== "") || [];
           if (validInterior.length === 0) return null;
           return (
-            <GallerySection 
+            <GallerySection
               title="A Beleza Revelada"
               subtitle="Navegue pelas páginas deste tesouro pedagógico"
               images={validInterior.map(item => resolveAsset(item.image) || "")}
@@ -291,7 +291,7 @@ export default function BookPage({ book }: BookPageProps) {
         />
 
         {book.technical && (
-          <SpecsSection 
+          <SpecsSection
             title={book.technical.title}
             specs={book.technical.technical}
             backgroundTexture={resolveAsset(book.backgroundTexture)}
@@ -302,7 +302,7 @@ export default function BookPage({ book }: BookPageProps) {
           const validFaqs = book.faq?.faq?.filter(f => f.question && f.question.trim() !== "") || [];
           if (validFaqs.length === 0) return null;
           return (
-            <FAQSection 
+            <FAQSection
               title={book.faq?.title}
               faqs={validFaqs}
             />
@@ -310,7 +310,7 @@ export default function BookPage({ book }: BookPageProps) {
         })()}
 
         {book.finalCTA && (
-          <FinalCTASection 
+          <FinalCTASection
             title={book.finalCTA.title}
             description={book.finalCTA.description}
             buttonText={book.finalCTA["button-buy"]}
