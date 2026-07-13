@@ -100,7 +100,7 @@ export default function Tutoria() {
       icon: <BookMarked className="w-6 h-6 text-brand-gold" />
     },
     {
-      title: "Turmas Ultra-Reduzidas",
+      title: "Turmas Ultrarreduzidas",
       desc: "Nossos tutores guiam grupos minúsculos. Seu filho não será apenas 'mais um' em uma sala lotada; ele terá um atendimento personalizado, respeitoso e acolhedor.",
       icon: <Users className="w-6 h-6 text-brand-gold" />
     },
@@ -199,7 +199,7 @@ export default function Tutoria() {
                     Programa de Tutoria Online
                   </div>
                   <h1 className="apple-headline text-4xl sm:text-5xl md:text-6xl text-brand-blue tracking-tight leading-[1.1]">
-                    Chega de reclamações da escola e da frustração de ver seu filho com <span className="text-gold-gradient italic">dificuldades para aprender</span>.
+                    Chega de reclamações da escola e da frustração de ver seu filho com <span className="text-gold-gradient italic">dificuldades para aprender.</span>
                   </h1>
                   <p className="apple-subheadline text-lg md:text-xl text-black/70 leading-relaxed font-medium max-w-2xl">
                     Dê a ele o suporte do método Kalia: Alfabetização e Matemática de verdade, no ritmo dele e no conforto do lar. Para crianças de <strong className="text-brand-blue">4 a 10 anos</strong>.
@@ -505,10 +505,6 @@ export default function Tutoria() {
               <FAQItem
                 question="Como funciona o material didático das aulas?"
                 answer="Na Kalia Educacional desenvolvemos nosso próprio material. O cronograma é integrado com o plano de aula."
-              />
-              <FAQItem
-                question="Meu filho tem dislexia/TDAH. A tutoria é indicada?"
-                answer="Com certeza. Nossos melhores resultados são com crianças atípicas que necessitam de previsibilidade, ordem no currículo e menos poluição de estímulos visuais na folha para conseguirem focar e reter o aprendizado."
               />
               <FAQItem
                 question="Qual a frequência e duração dos encontros?"
