@@ -221,23 +221,35 @@ export default function Tutoria() {
                   </p>
                 </div>
 
-                {/* Media Placeholder block */}
-                <div className="lg:col-span-5 relative w-full aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-[#eee7db] border border-black/5 group">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/5 to-transparent z-10" />
-                  {/* Space for video / main image */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-brand-blue/80 relative z-20">
-                    <div className="w-16 h-16 rounded-full bg-white/95 shadow-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
-                      <BookOpen className="w-8 h-8 text-brand-blue" />
+                {/* Two 3x4 Photos Grid */}
+                <div className="lg:col-span-5 grid grid-cols-2 gap-4 md:gap-6 items-start">
+                  {/* Mariana Photo */}
+                  <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl border border-black/5 group bg-[#e5ddd2]">
+                    <img
+                      src="/Mariana-new.jpg"
+                      alt="Mariana Munhoz"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white z-10">
+                      <p className="text-sm font-bold">Mariana Munhoz</p>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-brand-gold/90">Fundadora & Tutora</p>
                     </div>
-                    <span className="text-sm font-extrabold uppercase tracking-widest text-brand-blue/90">
-                      [Espaço para Imagem/Vídeo Institucional]
-                    </span>
-                    <p className="text-xs text-black/60 mt-2 max-w-xs leading-normal">
-                      Mostre aqui uma aula demonstrativa online ou a apresentação do material didático físico Kalia.
-                    </p>
                   </div>
-                  {/* Visual frame element */}
-                  <div className="absolute inset-4 border-2 border-dashed border-brand-gold/30 rounded-2xl pointer-events-none" />
+
+                  {/* Dayane Photo */}
+                  <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl border border-black/5 group bg-[#e5ddd2] mt-6 md:mt-12">
+                    <img
+                      src="/Dayane-new.jpg"
+                      alt="Dayane Torres"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white z-10">
+                      <p className="text-sm font-bold">Dayane Torres</p>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-brand-gold/90">Fundadora & Tutora</p>
+                    </div>
+                  </div>
                 </div>
 
               </div>
