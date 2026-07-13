@@ -18,7 +18,7 @@ const CreatorsSection = () => {
             <div className="space-y-4 md:space-y-6">
               <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10 aspect-[3/4]">
                 <img 
-                  src="/Mariana.png" 
+                  src="/Mariana-new.jpg" 
                   alt="Mariana Munhoz" 
                   className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
                 />
@@ -29,7 +29,7 @@ const CreatorsSection = () => {
             <div className="pt-12 space-y-4 md:space-y-6">
               <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10 aspect-[3/4]">
                 <img 
-                  src="/Dayane.png" 
+                  src="/Dayane-new.jpg" 
                   alt="Dayane Torres" 
                   className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
                 />

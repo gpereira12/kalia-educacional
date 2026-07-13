@@ -2,18 +2,18 @@ import { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ArrowLeft, 
-  MessageCircle, 
-  CheckCircle2, 
-  AlertCircle, 
-  Sparkles, 
-  BookOpen, 
-  ChevronDown, 
-  BookMarked, 
-  Clock, 
-  Users, 
-  Layers, 
+import {
+  ArrowLeft,
+  MessageCircle,
+  CheckCircle2,
+  AlertCircle,
+  Sparkles,
+  BookOpen,
+  ChevronDown,
+  BookMarked,
+  Clock,
+  Users,
+  Layers,
   Check,
   Heart,
   Smile,
@@ -83,7 +83,7 @@ export default function Tutoria() {
     },
     {
       title: "Lacunas acumuladas",
-      description: "A matéria avança a cada bimestre na escola tradicional, mas a base (alfabetização primária e lógica de contas) continua fraca.",
+      description: "A matéria avança a cada bimestre na escola, mas a base (alfabetização e lógica matemática) continua fraca.",
       icon: <Layers className="w-6 h-6 text-red-500" />
     },
     {
@@ -106,7 +106,7 @@ export default function Tutoria() {
     },
     {
       title: "Praticidade 100% Online",
-      desc: "Economize seu tempo e elimine o estresse do trânsito. O aluno aprende em tempo real por videoconferência direta no conforto e segurança do próprio lar.",
+      desc: "Economize seu tempo e elimine o estresse do trânsito. O aluno aprende em tempo real por videoaulas ao vivo no conforto e segurança do próprio lar.",
       icon: <GraduationCap className="w-6 h-6 text-brand-gold" />
     },
     {
@@ -125,9 +125,9 @@ export default function Tutoria() {
     <>
       <Head>
         <title>Programa de Tutoria - Kalia Educacional</title>
-        <meta 
-          name="description" 
-          content="Programa de aulas e tutoria online de Alfabetização e Matemática para crianças de 4 a 10 anos. Método clássico focado em resultados reais." 
+        <meta
+          name="description"
+          content="Programa de aulas e tutoria online de Alfabetização e Matemática para crianças de 4 a 10 anos. Método clássico focado em resultados reais."
         />
         <meta name="keywords" content="Tutoria Kalia Educacional, aulas particulares online, alfabetização clássica, matemática infantil, dislexia, TDAH" />
 
@@ -165,17 +165,17 @@ export default function Tutoria() {
           <div className="container mx-auto px-4">
             <div className="glass-apple rounded-full px-6 py-3 flex items-center justify-between shadow-md">
               <Link href="/" className="flex items-center gap-2 group">
-                <img 
-                  src="/logo-kalia.svg" 
-                  alt="Kalia Educacional" 
+                <img
+                  src="/logo-kalia.svg"
+                  alt="Kalia Educacional"
                   width="130"
                   height="32"
                   className="h-8 w-auto transition-transform duration-300 group-hover:scale-102"
                 />
               </Link>
 
-              <Link 
-                href="/#catalogo" 
+              <Link
+                href="/#catalogo"
                 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-blue/80 hover:text-brand-blue transition-colors duration-300"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
@@ -186,12 +186,12 @@ export default function Tutoria() {
         </header>
 
         <main className="pt-24 md:pt-32">
-          
+
           {/* 1. Hero Section */}
           <section className="py-12 md:py-24">
             <div className="max-w-7xl mx-auto px-4 md:px-8">
               <div className="grid lg:grid-cols-12 gap-12 items-center">
-                
+
                 {/* Text block */}
                 <div className="lg:col-span-7 space-y-6 md:space-y-8 text-left">
                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-gold/10 border border-brand-gold/20 rounded-full text-brand-gold font-semibold text-xs tracking-wider uppercase">
@@ -205,7 +205,7 @@ export default function Tutoria() {
                     Dê a ele o suporte do método Kalia: Alfabetização e Matemática de verdade, no ritmo dele e no conforto do lar. Para crianças de <strong className="text-brand-blue">4 a 10 anos</strong>.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                    <a 
+                    <a
                       href={whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -251,7 +251,7 @@ export default function Tutoria() {
                 Você sente que o aprendizado do seu filho está travado?
               </h2>
               <p className="apple-subheadline text-lg text-black/60 max-w-3xl mx-auto mb-12 font-medium">
-                Muitas vezes, a rotina escolar se torna sinônimo de frustração. A escola tradicional avança rápido demais em turmas lotadas, sem preencher as lacunas básicas de quem ficou para trás.
+                Muitas vezes, a rotina escolar se torna sinônimo de frustração. A estrutura pedagógica escolar avança rápido demais em turmas lotadas, sem preencher as lacunas básicas de quem ficou para trás.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 md:gap-8 text-left">
@@ -286,7 +286,7 @@ export default function Tutoria() {
               </p>
 
               <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-                
+
                 {/* Track 1: Literacy */}
                 <div className="glass-apple rounded-3xl p-8 md:p-12 text-left relative overflow-hidden group flex flex-col justify-between">
                   <div className="space-y-6">
@@ -297,7 +297,7 @@ export default function Tutoria() {
                       1. Alfabetização e Linguagem
                     </h3>
                     <p className="text-black/70 font-medium leading-relaxed">
-                      Conduzimos a criança desde o som das letras até a leitura fluente e a escrita autônoma. O método Kalia preenche as lacunas do método construtivista clássico, devolvendo a clareza e despertando o amor natural pelos livros.
+                      Conduzimos a criança desde o som das letras até a leitura fluente e a escrita autônoma. O método Kalia preenche as lacunas de aprendizagem, devolvendo a clareza e despertando o amor natural pelos livros.
                     </p>
                     <ul className="space-y-2">
                       {["Consciência Fonêmica (sons das letras)", "Leitura fluida com entonação", "Vocabulário rico e boa escrita"].map((item, idx) => (
@@ -308,7 +308,7 @@ export default function Tutoria() {
                       ))}
                     </ul>
                   </div>
-                  
+
                   {/* Image Placeholder */}
                   <div className="mt-8 relative w-full h-44 rounded-2xl overflow-hidden bg-[#e5ddd2] border border-black/5 flex items-center justify-center text-center p-4">
                     <div className="absolute inset-0 bg-grain opacity-[0.03]" />
@@ -340,7 +340,7 @@ export default function Tutoria() {
                       ))}
                     </ul>
                   </div>
-                  
+
                   {/* Image Placeholder */}
                   <div className="mt-8 relative w-full h-44 rounded-2xl overflow-hidden bg-[#e5ddd2] border border-black/5 flex items-center justify-center text-center p-4">
                     <div className="absolute inset-0 bg-grain opacity-[0.03]" />
@@ -363,14 +363,14 @@ export default function Tutoria() {
                   Por que pais exigentes escolhem a Kalia?
                 </h2>
                 <p className="apple-subheadline text-lg text-black/60 mt-4 font-medium">
-                  Não somos apenas um reforço paliativo. Focamos no desenvolvimento ordenado com bases sólidas.
+                  Não somos um reforço paliativo. Focamos no desenvolvimento ordenado com bases sólidas.
                 </p>
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 {pillars.map((pillar, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className="bg-white/90 border border-black/5 rounded-3xl p-6 md:p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow duration-300"
                   >
                     <div className="space-y-4">
@@ -382,7 +382,7 @@ export default function Tutoria() {
                     </div>
                   </div>
                 ))}
-                
+
                 {/* Call to action card inside the grid */}
                 <div className="bg-brand-blue text-white rounded-3xl p-6 md:p-8 flex flex-col justify-between shadow-xl">
                   <div className="space-y-4">
@@ -394,9 +394,9 @@ export default function Tutoria() {
                       O primeiro passo é totalmente gratuito. Entenda as necessidades reais de seu filho com nossa avaliação.
                     </p>
                   </div>
-                  <a 
-                    href={whatsappUrl} 
-                    target="_blank" 
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="apple-button-liturgical mt-6 text-center w-full !py-3 !text-sm text-brand-blue"
                   >
@@ -411,7 +411,7 @@ export default function Tutoria() {
           <section className="py-20 md:py-32">
             <div className="max-w-6xl mx-auto px-4">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                
+
                 {/* Text explanation */}
                 <div className="space-y-6 md:space-y-8 text-left">
                   <span className="text-xs font-bold uppercase tracking-widest text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full">
@@ -424,7 +424,7 @@ export default function Tutoria() {
                     A escola tradicional, com seu excesso de estímulos e prazos engessados, costuma ser hostil para crianças atípicas. Elas se sentem confusas, gerando ansiedade e baixa autoestima.
                   </p>
                   <p className="text-base text-black/70 leading-relaxed font-medium">
-                    O método da Kalia Educacional funciona porque é **ordenado e sem distrações visuais**. Nossos livros clássicos oferecem silêncio cognitivo, permitindo foco profundo na tarefa, acalmando o ritmo hiperativo e auxiliando no processamento de leitura e raciocínio lógico.
+                    O método da Kalia Educacional funciona porque é ordenado e sem distrações visuais. Nossos livros clássicos oferecem silêncio cognitivo, permitindo foco profundo na tarefa, acalmando o ritmo hiperativo e auxiliando no processamento de leitura e raciocínio lógico.
                   </p>
                 </div>
 
@@ -440,8 +440,8 @@ export default function Tutoria() {
                       T
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-brand-blue">Tomás (Diagnóstico de Dislexia)</h4>
-                      <p className="text-xs text-black/50 font-semibold">Aluno do Programa de Tutoria Kalia</p>
+                      <h4 className="text-sm font-bold text-brand-blue">Mariana (Diagnóstico de Dislexia)</h4>
+                      <p className="text-xs text-black/50 font-semibold">Mãe de aluno do Programa de Tutoria Kalia</p>
                     </div>
                   </div>
                 </div>
@@ -461,7 +461,7 @@ export default function Tutoria() {
                 {[
                   { step: "01", title: "Avaliação Inicial", desc: "Entendemos exatamente o nível de leitura e matemática do aluno e quais são suas lacunas." },
                   { step: "02", title: "Alocação", desc: "Seu filho é posicionado em um grupo compatível com o nível cognitivo e de idade." },
-                  { step: "03", title: "Aulas + Material", desc: "Aulas online dinâmicas ao vivo com tutores e uso de nossas apostilas físicas." },
+                  { step: "03", title: "Aulas + Material", desc: "Aulas online dinâmicas ao vivo com tutores e uso de nossas apostilas." },
                   { step: "04", title: "Prática Semanal", desc: "Tarefas rápidas de fixação enviadas para casa para desenvolver autonomia." },
                   { step: "05", title: "Acompanhamento", desc: "Feedbacks periódicos para você ver a evolução nítida a cada módulo." }
                 ].map((item, idx) => (
@@ -471,7 +471,7 @@ export default function Tutoria() {
                     </div>
                     <h3 className="text-base font-bold text-brand-blue">{item.title}</h3>
                     <p className="text-xs text-black/70 leading-relaxed font-semibold">{item.desc}</p>
-                    
+
                     {/* Visual arrow lines for desktop */}
                     {idx < 4 && (
                       <div className="hidden lg:block absolute top-4 left-[90%] w-full h-[1px] bg-brand-gold/20 -z-10" />
@@ -494,28 +494,28 @@ export default function Tutoria() {
             </div>
 
             <div className="space-y-2">
-              <FAQItem 
-                question="Para qual idade o Programa de Tutoria é recomendado?" 
+              <FAQItem
+                question="Para qual idade o Programa de Tutoria é recomendado?"
                 answer="Nosso programa atende crianças de 4 a 10 anos, cobrindo a fase de alfabetização e os fundamentos iniciais da matemática."
               />
-              <FAQItem 
-                question="As aulas online funcionam para crianças pequenas ou com déficit de atenção?" 
+              <FAQItem
+                question="As aulas online funcionam para crianças pequenas ou com déficit de atenção?"
                 answer="Sim. Pelo fato de trabalharmos com turmas minúsculas, o tutor estabelece uma dinâmica interativa permanente. O material limpo e focado impede o cansaço visual, enquanto atividades rápidas e direcionadas mantêm o foco da criança sem estressá-la."
               />
-              <FAQItem 
-                question="Como funciona o material didático das aulas?" 
-                answer="Utilizamos as apostilas e livros físicos da Kalia Educacional. O cronograma de material é integrado com o plano de aula, e o acesso aos módulos físicos é providenciado aos pais no momento da contratação da tutoria."
+              <FAQItem
+                question="Como funciona o material didático das aulas?"
+                answer="Na Kalia Educacional desenvolvemos nosso próprio material. O cronograma é integrado com o plano de aula."
               />
-              <FAQItem 
-                question="Meu filho tem dislexia/TDAH. A tutoria é indicada?" 
+              <FAQItem
+                question="Meu filho tem dislexia/TDAH. A tutoria é indicada?"
                 answer="Com certeza. Nossos melhores resultados são com crianças atípicas que necessitam de previsibilidade, ordem no currículo e menos poluição de estímulos visuais na folha para conseguirem focar e reter o aprendizado."
               />
-              <FAQItem 
-                question="Qual a frequência e duração dos encontros?" 
-                answer="As aulas acontecem semanalmente ao vivo, com duração projetada para respeitar o limiar máximo de concentração infantil, variando entre 45 e 50 minutos por sessão."
+              <FAQItem
+                question="Qual a frequência e duração dos encontros?"
+                answer="As aulas acontecem semanalmente ao vivo, com duração projetada para respeitar o limiar máximo de concentração infantil, variando entre 45 e 50 minutos."
               />
-              <FAQItem 
-                question="Preciso acompanhar meu filho durante toda a aula?" 
+              <FAQItem
+                question="Preciso acompanhar meu filho durante toda a aula?"
                 answer="Para crianças de 4 a 5 anos, recomendamos auxílio inicial de um adulto apenas para conexão técnica. Para crianças mais velhas, nosso objetivo é o desenvolvimento da autonomia, para que façam a aula de forma independente com o tutor."
               />
             </div>
@@ -531,9 +531,9 @@ export default function Tutoria() {
               <p className="apple-subheadline text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-medium">
                 Cada mês que passa sem a base pedagógica correta acumula mais lacunas no aprendizado do seu filho. Mude o futuro escolar dele agora.
               </p>
-              
+
               <div className="pt-4 flex flex-col items-center gap-4">
-                <a 
+                <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
