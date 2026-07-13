@@ -357,12 +357,28 @@ export default function Tutoria() {
                     </ul>
                   </div>
 
-                  {/* Image Placeholder */}
-                  <div className="mt-8 relative w-full h-44 rounded-2xl overflow-hidden bg-[#e5ddd2] border border-black/5 flex items-center justify-center text-center p-4">
-                    <div className="absolute inset-0 bg-grain opacity-[0.03]" />
-                    <div className="z-10 text-brand-blue/60 flex flex-col items-center">
-                      <Layers className="w-8 h-8 mb-2" />
-                      <span className="text-xs font-bold uppercase tracking-wider">[Imagem do Material de Matemática]</span>
+                  {/* Imagens do Material de Matemática */}
+                  <div className="mt-8 grid grid-cols-3 gap-2 h-44 w-full rounded-2xl overflow-hidden bg-[#e5ddd2] border border-black/5">
+                    <div className="relative h-full overflow-hidden group/img">
+                      <img
+                        src="/books/matematica-nivel-1-vol-1-infantil/capa_plana.png"
+                        alt="Capa Matemática Nível 1 Vol 1"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                      />
+                    </div>
+                    <div className="relative h-full overflow-hidden group/img">
+                      <img
+                        src="/books/matematica-nivel-1-vol-1-infantil/miolo/miolo_040.png"
+                        alt="Miolo Matemática Nível 1 Vol 1 Pág 40"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                      />
+                    </div>
+                    <div className="relative h-full overflow-hidden group/img">
+                      <img
+                        src="/books/matematica-nivel-1-vol-1-infantil/miolo/miolo_060.png"
+                        alt="Miolo Matemática Nível 1 Vol 1 Pág 60"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                      />
                     </div>
                   </div>
                 </div>
